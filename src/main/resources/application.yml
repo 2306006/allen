@@ -1,0 +1,7 @@
+#mysql数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/database # database替换为对应的数据库
+    username: root                            # root替换为对应的用户
+    password: iisi@h94284vu86                        # password替换为对应的密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
