@@ -38,6 +38,12 @@
             </tr>
         </table>
     </form>
+    <th:block th:if="${errorMsgBoolean}">
+        <div th:text="${errorMsg}"></div>
+    </th:block>
+    <th:block th:if="!${errorMsgBoolean}">
+        <div th:text="${Msg}"></div>
+    </th:block>
 </div>
 
 </body>

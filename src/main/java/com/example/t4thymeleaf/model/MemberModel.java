@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -15,7 +16,7 @@ import java.sql.Timestamp;
 public class MemberModel {
 
     @Id
-    @Column(name = "Member_ID", length = 255, nullable = false)
+    @Column(name = "Member_ID", length = 255, nullable = false ,unique = true)
     private String memberID;
 
     @Column(name = "Member_Name", length = 255, nullable = false)
@@ -24,13 +25,13 @@ public class MemberModel {
     @Column(name = "Member_Nick_Name", length = 255, nullable = false)
     private String memberNickName;
 
-    @Column(name = "Email", length = 255, nullable = false)
+    @Column(name = "Email", length = 255, nullable = false ,unique = true)
     private String email;
 
     @Column(name = "Member_Status", length = 2, nullable = false)
     private String memberStatus;
 
-    @Column(name = "Member_Account", length = 50, nullable = false)
+    @Column(name = "Member_Account", length = 50, nullable = false ,unique = true)
     private String memberAccount;
 
     @Column(name = "Member_Password", length = 255, nullable = false)

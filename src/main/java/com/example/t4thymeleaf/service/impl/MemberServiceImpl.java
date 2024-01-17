@@ -5,6 +5,8 @@ import com.example.t4thymeleaf.dto.MemberDTO;
 import com.example.t4thymeleaf.model.MemberModel;
 import com.example.t4thymeleaf.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -17,6 +19,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     MemberDAO memberDAO;
+
+    @Override
+    public Page<MemberModel> findMemberPage(Pageable pageable){
+        return memberDAO.findAll(pageable);
+    }
 
     @Override
     public MemberDTO getMemberById(String memberID){

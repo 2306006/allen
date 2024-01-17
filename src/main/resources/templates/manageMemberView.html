@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>線上討論系統 - 管理會員</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
-
+<div>
+    <div>線上討論系統 - 管理會員</div>
+    <a th:utext="新增會員" th:href="@{/addMember}"></a>
+    <table class="table table-striped">
+        <thead>
+            <th> 會員帳號 </th>
+            <th> 會員密碼 </th>
+            <th> 會員姓名 </th>
+            <th> 會員暱稱 </th>
+            <th> E-mail </th>
+            <th> 操作 </th>
+        </thead>
+       <tbody th:each="memberVO : ${memberPage}">
+            <td th:utext="${memberVO.memberAccount}"></td>
+            <td th:utext="${memberVO.memberPassword}"></td>
+            <td th:utext="${memberVO.memberName}"></td>
+            <td th:utext="${memberVO.memberNickName}"></td>
+            <td th:utext="${memberVO.email}"></td>
+            <td><a th:utext="修改會員" th:href="@{/editMember/}+${memberVO.memberAccount}"></a></td>
+       </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="0">1</a></li>
+            <li class="page-item"><a class="page-link" href="1">2</a></li>
+            <li class="page-item"><a class="page-link" href="2">3</a></li>
+            <li class="page-item">
+                <a class="page-link" th:href="${nextPage}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>
